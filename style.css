@@ -1,0 +1,163 @@
+body {
+            background-color: #050507;
+            color: #FFFFFF;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- TEXTURE --- */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48ZmlsdGVyIGlkPSJnIj48ZmFNaXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNnKSIgb3BhY2l0eT0iMC4wNiIvPjwvc3ZnPg==');
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+            mix-blend-mode: overlay;
+        }
+
+        .aurora-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.5;
+            transition: background 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- GLASS UI --- */
+        .glass-panel {
+            background: var(--glass-surface);
+            backdrop-filter: blur(50px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6), inset 0 1px 0 0 rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .glass-panel:hover::before { opacity: 1; }
+
+        /* --- SLIDER --- */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+            position: relative;
+            z-index: 10;
+            cursor: grab;
+        }
+        input[type=range]:active { cursor: grabbing; }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            margin-top: -16px;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.3);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        input[type=range]:active::-webkit-slider-thumb { transform: scale(1.15); }
+
+        /* --- NAVIGATION --- */
+        .nav-item-active {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .nav-item-inactive {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .nav-item-inactive:hover { color: white; background: rgba(255,255,255,0.05); }
+
+        /* --- TOAST --- */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(255, 50, 50, 0.2);
+            border: 1px solid rgba(255, 50, 50, 0.3);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            color: #ffcccc;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        @keyframes fadeScaleIn {
+            from { opacity: 0; transform: scale(0.96) translateY(10px); filter: blur(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+        }
+        .animate-enter { animation: fadeScaleIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .text-glow { text-shadow: 0 0 20px rgba(255,255,255,0.3); }
+
+        /* --- JOURNAL PAGE POLISH --- */
+        #view-journal .glass-panel {
+            --glass-surface: rgba(12, 12, 18, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(70px) saturate(180%);
+            background:
+                radial-gradient(circle at 0% 0%, rgba(148, 163, 253, 0.22), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(52, 211, 235, 0.18), transparent 55%),
+                rgba(5, 5, 8, 0.9);
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.85),
+                inset 0 0 40px rgba(255,255,255,0.02);
+        }
+
+        #journal-text {
+            outline: none !important;
+            border: none !important;
+            background: rgba(5, 5, 10, 0.75) !important;
+            border-radius: 24px;
+            padding: 32px !important;
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.045),
+                0 0 40px rgba(0,0,0,0.6);
+        }
+
+        #journal-text::placeholder {
+            color: rgba(255,255,255,0.20);
+        }
+
+        #journal-text:focus {
+            box-shadow:
+                inset 0 0 0 1px rgba(125, 211, 252, 0.85),
+                0 0 35px rgba(56, 189, 248, 0.35);
+        }

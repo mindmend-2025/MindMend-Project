@@ -1,0 +1,18 @@
+{
+  "name": "mindmend-archive-backend",
+  "version": "1.0.0",
+  "description": "Backend for MindMend Archive",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^9.0.0"
+  }
+}
