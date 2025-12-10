@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>MindMend | Settings</title>
+          <script src="https://cdn.tailwindcss.com">
+          </script>
+          <script src="https://unpkg.com/@phosphor-icons/web">
+          </script>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="style.css">
+            </head>
+            <body class="flex min-h-screen w-full selection:bg-white/20">
+              <div class="noise-overlay">
+              </div>
+              <div class="fixed inset-0 z-0 overflow-hidden">
+                <div class="aurora-orb w-[900px] h-[900px] -top-[25%] left-[5%] animate-drift" style="background:radial-gradient(circle,rgba(139,92,246,.4) 0,rgba(236,72,153,.25) 40%,rgba(0,0,0,0) 75%)">
+                </div>
+                <div class="aurora-orb w-[700px] h-[700px] top-[20%] right-[10%] animate-drift-slow" style="background:radial-gradient(circle,rgba(59,130,246,.35) 0,rgba(34,211,238,.3) 45%,rgba(0,0,0,0) 75%)">
+                </div>
+              </div>
+              <main class="relative z-10 w-full max-w-4xl mx-auto p-6">
+                <div class="glass-panel p-8" style="--glass-surface:rgba(12,12,18,0.85);--glass-border:rgba(255,255,255,0.12)">
+                  <div class="flex items-center justify-between mb-8">
+                    <div>
+                      <h1 class="text-4xl font-bold text-white mb-2">Settings</h1>
+                        <p class="text-white/60">Customize your MindMend experience</p>
+                        </div>
+                        <button onclick='window.location.href="index.html"' class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white transition">
+                          <i class="ph-bold ph-x">
+                          </i>
+                        </button>
+                      </div>
+                      <div class="mb-8">
+                        <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                          <i class="ph-bold ph-user">
+                          </i> Profile</h2>
+                          <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                              <div id="user-avatar" class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+                              </div>
+                              <div>
+                                <div class="text-white font-medium" id="user-name">Loading...</div>
+                                  <div class="text-white/50 text-sm" id="user-email">Loading...</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mb-8">
+                              <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                                <i class="ph-bold ph-palette">
+                                </i> Appearance</h2>
+                                <div class="space-y-4">
+                                  <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div>
+                                      <div class="text-white font-medium">Theme</div>
+                                        <div class="text-white/50 text-sm">Choose your preferred color scheme</div>
+                                        </div>
+                                        <div class="flex gap-2">
+                                          <button id="theme-dark" class="px-4 py-2 rounded-lg bg-white/10 text-white transition hover:bg-white/15">
+                                            <i class="ph-bold ph-moon">
+                                            </i> Dark</button> <button id="theme-light" class="px-4 py-2 rounded-lg bg-white/5 text-white/50 transition hover:bg-white/10">
+                                            <i class="ph-bold ph-sun">
+                                            </i> Light</button>
+                                          </div>
+                                        </div>
+                                        <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+                                          <div>
+                                            <div class="text-white font-medium">Bold Text</div>
+                                              <div class="text-white/50 text-sm">Make text easier to read</div>
+                                              </div>
+                                              <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" id="bold-text-toggle" class="sr-only peer">
+                                                  <div class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-500">
+                                                  </div>
+                                                </label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div id="admin-section" class="mb-8 hidden">
+                                            <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                                              <i class="ph-bold ph-shield-check">
+                                              </i> Admin</h2>
+                                              <div class="p-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30">
+                                                <div class="text-white font-medium mb-2">Admin Dashboard</div>
+                                                  <div class="text-white/70 text-sm mb-4">View and manage all user entries</div>
+                                                    <button onclick='window.location.href="admin.html"' class="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 text-white transition">Open Dashboard</button>
+                                                    </div>
+                                                  </div>
+                                                  <div>
+                                                    <h2 class="text-xl font-semibold text-red-400 mb-4 flex items-center gap-2">
+                                                      <i class="ph-bold ph-warning">
+                                                      </i> Danger Zone</h2>
+                                                      <div class="space-y-3">
+                                                        <button id="logout-btn" class="w-full p-4 rounded-xl bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-300 transition">
+                                                          <i class="ph-bold ph-sign-out">
+                                                          </i> Sign Out</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </main>
+                                                  <script>const user=JSON.parse(localStorage.getItem("user")||"null");user||(window.location.href="/login.html"),document.getElementById("user-name").textContent=user.username||user.email||"User",document.getElementById("user-email").textContent=user.email||"-";const initial=(user.username||user.email||"U")[0].toUpperCase();document.getElementById("user-avatar").innerHTML=`<div class="w-full h-full flex items-center justify-center text-white text-2xl font-bold">${initial}</div>`,"admin"===user.role&&document.getElementById("admin-section").classList.remove("hidden");const theme=localStorage.getItem("theme")||"dark",boldText="true"===localStorage.getItem("boldText");"light"===theme&&(document.getElementById("theme-light").classList.add("bg-white/10"),document.getElementById("theme-light").classList.remove("bg-white/5","text-white/50"),document.getElementById("theme-dark").classList.remove("bg-white/10"),document.getElementById("theme-dark").classList.add("bg-white/5","text-white/50"),document.body.classList.add("light-mode")),boldText&&(document.getElementById("bold-text-toggle").checked=!0,document.body.classList.add("bold-text")),document.getElementById("theme-dark").addEventListener("click",()=>{localStorage.setItem("theme","dark"),document.body.classList.remove("light-mode"),document.getElementById("theme-dark").classList.add("bg-white/10"),document.getElementById("theme-dark").classList.remove("bg-white/5","text-white/50"),document.getElementById("theme-light").classList.remove("bg-white/10"),document.getElementById("theme-light").classList.add("bg-white/5","text-white/50")}),document.getElementById("theme-light").addEventListener("click",()=>{localStorage.setItem("theme","light"),document.body.classList.add("light-mode"),document.getElementById("theme-light").classList.add("bg-white/10"),document.getElementById("theme-light").classList.remove("bg-white/5","text-white/50"),document.getElementById("theme-dark").classList.remove("bg-white/10"),document.getElementById("theme-dark").classList.add("bg-white/5","text-white/50")}),document.getElementById("bold-text-toggle").addEventListener("change",e=>{localStorage.setItem("boldText",e.target.checked),e.target.checked?document.body.classList.add("bold-text"):document.body.classList.remove("bold-text")}),document.getElementById("logout-btn").addEventListener("click",()=>{confirm("Are you sure you want to sign out?")&&(localStorage.removeItem("user"),window.location.href="/login.html")})</script>
+                                                  </body>
+                                                </html>

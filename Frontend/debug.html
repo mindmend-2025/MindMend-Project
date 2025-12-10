@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Debug</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6">Database Debug Info</h1>
+    
+    <button onclick="checkDB()" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg mb-6">
+      Check Database
+    </button>
+    
+    <div id="result" class="bg-gray-800 p-6 rounded-lg">
+      <p class="text-gray-400">Click the button to check database...</p>
+    </div>
+  </div>
+
+  <script>
+    async function checkDB() {
+      try {
+        const response = await fetch('/api/debug/db');
+        const data = await response.json();
+        
+        document.getElementById('result').innerHTML = `
+          <h2 class="text-xl font-bold mb-4">Database Status</h2>
+          <pre class="text-sm overflow-auto">${JSON.stringify(data, null, 2)}</pre>
+        `;
+      } catch (error) {
+        document.getElementById('result').innerHTML = `
+          <p class="text-red-400">Error: ${error.message}</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
