@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>MindMend | Sign In</title>
+          <script src="https://cdn.tailwindcss.com">
+          </script>
+          <script src="https://unpkg.com/@phosphor-icons/web">
+          </script>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="style.css">
+              <style>.glow-card{position:relative;overflow:hidden}.glow-card::before{content:'';position:absolute;top:var(--mouse-y,50%);left:var(--mouse-x,50%);width:400px;height:400px;background:radial-gradient(circle,rgba(147,51,234,.3) 0,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity .3s ease}.glow-card:hover::before{opacity:1}</style>
+              </head>
+              <body class="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#16213e] overflow-hidden">
+                <div class="noise-overlay">
+                </div>
+                <div class="fixed inset-0 z-0">
+                  <div class="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl top-20 -left-20 animate-pulse">
+                  </div>
+                  <div class="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl bottom-20 -right-20 animate-pulse" style="animation-delay:1s">
+                  </div>
+                </div>
+                <div class="relative z-10 w-full max-w-5xl mx-4 grid md:grid-cols-5 gap-0 rounded-2xl overflow-hidden shadow-2xl glow-card">
+                  <div class="md:col-span-2 relative p-10 flex flex-col justify-between bg-gradient-to-br from-purple-600/10 to-blue-600/10 backdrop-blur-xl border-r border-white/10">
+                    <div>
+                      <div class="flex items-center gap-3 mb-16">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 via-purple-600 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/30">
+                          <i class="ph-fill ph-brain text-2xl text-white">
+                          </i>
+                        </div>
+                        <div class="flex flex-col">
+                          <span class="text-2xl font-black text-white tracking-tight">MindMend</span> <span class="text-[10px] text-purple-400 uppercase tracking-[0.15em] font-semibold">Mental Wellness</span>
+                          </div>
+                        </div>
+                        <div class="mb-8">
+                          <h1 class="text-5xl font-black text-white mb-3 leading-[1.1]">Your<br>
+                            <span class="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-400 bg-clip-text text-transparent">mental wellness</span>
+                              <br>
+                                <span class="text-white/90">companion</span>
+                                </h1>
+                                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full">
+                                </div>
+                              </div>
+                              <p class="text-white/70 text-base mb-10 leading-relaxed font-light">Track your moods, reflect on your thoughts, and receive AI-powered personalized affirmations to support your mental health journey.</p>
+                                <div class="space-y-4">
+                                  <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/30 to-purple-600/20 border border-purple-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                      <i class="ph-fill ph-book-open text-purple-400 text-lg">
+                                      </i>
+                                    </div>
+                                    <div>
+                                      <span class="text-white font-semibold text-sm block">Daily Journaling</span> <span class="text-white/50 text-xs">Capture your thoughts & reflections</span>
+                                      </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 group">
+                                      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <i class="ph-fill ph-heart text-blue-400 text-lg">
+                                        </i>
+                                      </div>
+                                      <div>
+                                        <span class="text-white font-semibold text-sm block">Mood Tracking</span> <span class="text-white/50 text-xs">Visualize patterns & insights</span>
+                                        </div>
+                                      </div>
+                                      <div class="flex items-center gap-4 group">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border border-cyan-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                          <i class="ph-fill ph-sparkle text-cyan-400 text-lg">
+                                          </i>
+                                        </div>
+                                        <div>
+                                          <span class="text-white font-semibold text-sm block">AI Affirmations</span> <span class="text-white/50 text-xs">Personalized daily motivation</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-white/40 text-xs border-t border-white/5 pt-4 mt-6">
+                                      <i class="ph-fill ph-lock-simple text-sm">
+                                      </i> <span>End-to-end encrypted · Your privacy is our priority</span>
+                                    </div>
+                                  </div>
+                                  <div class="md:col-span-3 p-10 bg-[#0f0f1a]/80 backdrop-blur-xl flex flex-col justify-center">
+                                    <div class="max-w-md mx-auto w-full">
+                                      <h2 class="text-2xl font-bold text-white mb-2">Welcome back</h2>
+                                        <p class="text-white/50 text-sm mb-8">Sign in to continue your journey</p>
+                                          <div id="clerk-sign-in" class="mb-6">
+                                            <div class="flex items-center justify-center text-white/50 text-sm py-12">
+                                              <div class="flex items-center gap-2">
+                                                <div class="w-2 h-2 rounded-full bg-purple-400 animate-pulse">
+                                                </div>
+                                                <span>Loading...</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="status-pill" id="sync-status">
+                                              <span class="w-2 h-2 rounded-full bg-purple-400/50">
+                                              </span> <span id="sync-status-text" class="text-white/50 text-xs">Ready to sign in</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <script async crossorigin="anonymous" data-clerk-publishable-key="pk_test_bWFqb3ItbGVvcGFyZC0zNi5jbGVyay5hY2NvdW50cy5kZXYk" src="https://major-leopard-36.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js">
+                                      </script>
+                                      <script src="auth.js" type="module">
+                                      </script>
+                                      <script>const glowCard=document.querySelector(".glow-card");glowCard&&glowCard.addEventListener("mousemove",e=>{const o=glowCard.getBoundingClientRect();glowCard.style.setProperty("--mouse-x",e.clientX-o.left+"px"),glowCard.style.setProperty("--mouse-y",e.clientY-o.top+"px")})</script>
+                                      </body>
+                                    </html>

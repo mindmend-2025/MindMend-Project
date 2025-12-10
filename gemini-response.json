@@ -1,0 +1,25 @@
+Status: 200
+Full Response: {
+  "candidates": [
+    {
+      "content": {
+        "role": "model"
+      },
+      "finishReason": "MAX_TOKENS",
+      "index": 0
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 49,
+    "totalTokenCount": 148,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 49
+      }
+    ],
+    "thoughtsTokenCount": 99
+  },
+  "modelVersion": "gemini-2.5-flash",
+  "responseId": "PNQvacS_GcS84-EPmvu5kQ8"
+}

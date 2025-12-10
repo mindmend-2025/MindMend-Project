@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>MindMend | Admin Dashboard</title>
+          <script src="https://cdn.tailwindcss.com">
+          </script>
+          <script src="https://unpkg.com/@phosphor-icons/web">
+          </script>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="style.css">
+              <style>main::-webkit-scrollbar{display:none}main{-ms-overflow-style:none;scrollbar-width:none}</style>
+                <script>!function(){const e=localStorage.getItem("mindmend-theme"),t=localStorage.getItem("mindmend-font-size"),m=localStorage.getItem("mindmend-bold-text");"light"===e&&document.documentElement.classList.add("light-mode"),"large"===t&&(document.documentElement.style.fontSize="18px"),"true"===m&&document.documentElement.classList.add("bold-text")}()</script>
+                </head>
+                <body class="flex justify-center items-start min-h-screen w-screen selection:bg-white/20 pt-8">
+                  <div class="noise-overlay">
+                  </div>
+                  <div class="fixed inset-0 z-0 overflow-hidden">
+                    <div class="aurora-orb w-[800px] h-[800px] -top-[20%] left-[10%] animate-drift" style="background:radial-gradient(circle,rgba(94,92,230,.4) 0,rgba(0,0,0,0) 70%)">
+                    </div>
+                    <div class="aurora-orb w-[600px] h-[600px] bottom-[0%] right-[5%] animate-drift-slow" style="background:radial-gradient(circle,rgba(100,210,255,.3) 0,rgba(0,0,0,0) 70%)">
+                    </div>
+                  </div>
+                  <main class="relative z-10 w-full max-w-7xl p-6 h-screen overflow-y-auto">
+                    <div class="glass-panel p-8 mb-6">
+                      <div class="flex items-center justify-between mb-6">
+                        <div>
+                          <h1 class="text-4xl font-bold text-white mb-2 flex items-center gap-3">
+                            <i class="ph-fill ph-shield-check text-purple-400">
+                            </i> Admin Dashboard</h1>
+                            <p class="text-white/60">Monitor users, entries, and platform statistics</p>
+                            </div>
+                            <div class="flex gap-3">
+                              <a href="index.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white transition flex items-center gap-2">
+                                <i class="ph-bold ph-house">
+                                </i> <span>Back to App</span> </a>
+                                <a href="profile.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white transition flex items-center gap-2">
+                                  <i class="ph-bold ph-user">
+                                  </i> <span>Profile</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                            <div class="glass-panel p-6">
+                              <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                                  <i class="ph-fill ph-users text-2xl text-blue-400">
+                                  </i>
+                                </div>
+                              </div>
+                              <div class="text-white/60 text-sm mb-1">Total Users</div>
+                                <div class="text-3xl font-bold text-white" id="total-users">0</div>
+                                </div>
+                                <div class="glass-panel p-6">
+                                  <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                      <i class="ph-fill ph-book-open text-2xl text-purple-400">
+                                      </i>
+                                    </div>
+                                  </div>
+                                  <div class="text-white/60 text-sm mb-1">Total Entries</div>
+                                    <div class="text-3xl font-bold text-white" id="total-entries">0</div>
+                                    </div>
+                                    <div class="glass-panel p-6">
+                                      <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
+                                          <i class="ph-fill ph-calendar text-2xl text-green-400">
+                                          </i>
+                                        </div>
+                                      </div>
+                                      <div class="text-white/60 text-sm mb-1">Today's Entries</div>
+                                        <div class="text-3xl font-bold text-white" id="entries-today">0</div>
+                                        </div>
+                                        <div class="glass-panel p-6">
+                                          <div class="flex items-center justify-between mb-4">
+                                            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                                              <i class="ph-fill ph-chart-line text-2xl text-cyan-400">
+                                              </i>
+                                            </div>
+                                          </div>
+                                          <div class="text-white/60 text-sm mb-1">Avg Mood</div>
+                                            <div class="text-3xl font-bold text-white" id="avg-mood">-</div>
+                                            </div>
+                                          </div>
+                                          <div class="glass-panel p-8 mb-6">
+                                            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                                              <i class="ph-bold ph-users">
+                                              </i> Recent Users</h2>
+                                              <div id="users-container" class="space-y-3 max-h-96 overflow-y-auto pr-2">
+                                                <div class="text-white/50 text-center py-8">Loading users...</div>
+                                                </div>
+                                              </div>
+                                              <div class="glass-panel p-8 mb-6">
+                                                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                                                  <i class="ph-bold ph-book-open">
+                                                  </i> All Journal Entries</h2>
+                                                  <div id="entries-container" class="space-y-4 max-h-screen overflow-y-auto pr-2">
+                                                    <div class="text-white/50 text-center py-12">Loading entries...</div>
+                                                    </div>
+                                                  </div>
+                                                </main>
+                                                <script async crossorigin="anonymous" data-clerk-publishable-key="pk_test_bWFqb3ItbGVvcGFyZC0zNi5jbGVyay5hY2NvdW50cy5kZXYk" src="https://major-leopard-36.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js" type="text/javascript">
+                                                </script>
+                                                <script>let currentUser=null;const waitForClerk=()=>new Promise(e=>{const t=()=>{window.Clerk&&window.Clerk.user?(currentUser=window.Clerk.user,e(window.Clerk)):window.Clerk&&"function"==typeof window.Clerk.load?window.Clerk.load().then(()=>{currentUser=window.Clerk.user,e(window.Clerk)}).catch(()=>{window.location.href="/login.html"}):setTimeout(t,100)};t()});async function loadAdminData(){try{const e=await fetch("/api/admin/entries"),{entries:t}=await e.json(),n=await fetch("/api/admin/users"),{users:r}=await n.json(),i=r.length,d=t.length,o=(new Date).toISOString().split("T")[0],a=t.filter(e=>e.date===o).length,l=t.length>0?(t.reduce((e,t)=>e+t.moodValue,0)/t.length).toFixed(1):"-";document.getElementById("total-users").textContent=i,document.getElementById("total-entries").textContent=d,document.getElementById("entries-today").textContent=a,document.getElementById("avg-mood").textContent=l,renderUsers(r),renderEntries(t)}catch(e){console.error("Failed to load admin data:",e),document.getElementById("entries-container").innerHTML='<div class="text-red-400 text-center py-12">Failed to load data</div>'}}function renderUsers(e){const t=document.getElementById("users-container");0!==e.length?t.innerHTML=e.slice(0,10).map(e=>`\n                <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/8 transition flex items-center gap-4">\n                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">\n                        ${(e.firstName||e.email||"U")[0].toUpperCase()}\n                    </div>\n                    <div class="flex-1">\n                        <div class="text-white font-medium">${e.firstName&&e.lastName?`${e.firstName} ${e.lastName}`:e.email}</div>\n                        <div class="text-white/50 text-sm">${e.email}</div>\n                    </div>\n                    <div class="text-white/40 text-xs">\n                        Joined ${new Date(e.createdAt).toLocaleDateString()}\n                    </div>\n                </div>\n            `).join(""):t.innerHTML='<div class="text-white/50 text-center py-8">No users yet</div>'}function renderEntries(e){const t=document.getElementById("entries-container");0!==e.length?t.innerHTML=e.map(e=>`\n                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 transition">\n                    <div class="flex items-start justify-between mb-3">\n                        <div>\n                            <div class="text-white/40 text-xs mb-1">${e.userEmail||"Unknown User"}</div>\n                            <div class="text-white font-medium">${e.date}</div>\n                        </div>\n                        <div class="px-3 py-1 rounded-full text-sm ${getMoodColor(e.moodValue)}">\n                            ${e.moodLabel}\n                        </div>\n                    </div>\n                    <div class="text-white/70 mb-3">${e.text}</div>\n                    ${e.affirmation?`\n                        <div class="p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">\n                            <div class="text-white/50 text-xs mb-1">Affirmation</div>\n                            <div class="text-white/90 italic">${e.affirmation}</div>\n                        </div>\n                    `:""}\n                </div>\n            `).join(""):t.innerHTML='<div class="text-white/50 text-center py-12">No entries yet</div>'}function getMoodColor(e){return e<=20?"bg-red-500/20 text-red-300 border border-red-500/30":e<=40?"bg-orange-500/20 text-orange-300 border border-orange-500/30":e<=60?"bg-yellow-500/20 text-yellow-300 border border-yellow-500/30":e<=80?"bg-green-500/20 text-green-300 border border-green-500/30":"bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"}waitForClerk().then(async e=>{if(!currentUser||"admin"!==currentUser.publicMetadata?.role)return alert("Access denied. Admin privileges required."),void(window.location.href="/index.html");await loadAdminData()}).catch(()=>{window.location.href="/login.html"})</script>
+                                                </body>
+                                              </html>
